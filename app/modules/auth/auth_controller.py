@@ -24,4 +24,4 @@ class AuthController:
             if "duplicate key" in error_message:
                 return  jsonify({"status": "ERROR", "message": "Cliente já registrado", "error": error_message}), 409
             else:
-                return  jsonify({"status": "ERROR", "message": "Erro inesperado ao registrar cliente",}), 500
+                return  jsonify({"status": "ERROR", "message": "Erro inesperado ao registrar cliente", "error": error_message}), 500

@@ -29,3 +29,14 @@ class CustomerRepository:
         customer = db.session.query(Customer).filter(Customer.id == customer_id).first_or_404()
 
         return customer.to_dict()
+
+    @staticmethod
+    def update_customer(customer_id, data):
+        customer = db.session.query(Customer).filter(Customer.id == customer_id).first_or_404()
+
+        for key, value in data.items():
+            setattr(customer, key, value)
+
+        db.session.commit()
+
+        return customer.to_dict()
