@@ -8,6 +8,7 @@ auth = Blueprint("auth", __name__, url_prefix="/auth")
 
 auth_controller = AuthController()
 
+
 @auth.route("/register", methods=["POST"])
 @request_body_validator(create_plan_schema)
 def register():

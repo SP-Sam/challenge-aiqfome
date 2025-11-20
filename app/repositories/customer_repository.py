@@ -17,3 +17,9 @@ class CustomerRepository:
         db.session.commit()
 
         return new_customer.to_dict()
+
+    @staticmethod
+    def get_customers():
+        customers = Customer.query.all()
+
+        return [customer.to_dict() for customer in customers]
