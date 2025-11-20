@@ -7,11 +7,15 @@ from app.models.customer import Customer
 from app.models.product import Product
 from app.models.customer_product import CustomerProduct
 
+from app.routes.auth import auth
+
 
 class App:
     def __init__(self, config):
         self.app = Flask(__name__)
         self.app.config.from_object(config)
+        self.app.register_blueprint(auth)
+
         self.db = db.init_app(self.app)
 
         with self.app.app_context():

@@ -17,6 +17,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: postgres
+      PG_HOST: localhost
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
