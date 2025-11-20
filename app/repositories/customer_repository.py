@@ -23,3 +23,9 @@ class CustomerRepository:
         customers = Customer.query.all()
 
         return [customer.to_dict() for customer in customers]
+
+    @staticmethod
+    def get_customer_by_id(customer_id):
+        customer = db.session.query(Customer).filter(Customer.id == customer_id).first_or_404()
+
+        return customer.to_dict()
