@@ -44,7 +44,10 @@ class CustomerRepository:
         customer = db.session.query(Customer).filter(Customer.id == customer_id).first_or_404()
 
         for key, value in data.items():
-            setattr(customer, key, value)
+            if key == 'password':
+                setattr(customer, key, PasswordUtils.encrypt_password(value))
+            else:
+                setattr(customer, key, value)
 
         db.session.commit()
 
