@@ -9,6 +9,7 @@ from app.models.customer_product import CustomerProduct
 
 from app.routes.auth import auth
 from app.routes.customer import customer
+from app.routes.customer_product import customer_product
 
 
 class App:
@@ -18,6 +19,7 @@ class App:
 
         self.app.register_blueprint(auth)
         self.app.register_blueprint(customer)
+        self.app.register_blueprint(customer_product)
 
         db.init_app(self.app)
 
@@ -26,6 +28,7 @@ class App:
 
     def run(self):
         return self.app.run(debug=True, host="0.0.0.0")
+
 
 if __name__ == "__main__":
     app = App(app_config)

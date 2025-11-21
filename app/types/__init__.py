@@ -10,6 +10,7 @@ class TCustomer:
 
 @dataclass
 class TProduct:
+    id: int
     title: str
     image: str
     price: float
