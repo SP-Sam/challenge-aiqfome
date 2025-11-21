@@ -31,6 +31,4 @@ class Customer(db.Model):
             name = self.name,
             email = self.email,
             is_admin = self.is_admin,
-            created_at = self.created_at,
-            updated_at = self.updated_at,
         )

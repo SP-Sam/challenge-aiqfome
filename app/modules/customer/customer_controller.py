@@ -25,7 +25,7 @@ class CustomerController:
         except SQLAlchemyError as db_error:
             return jsonify({"status": "ERROR", "message": "Erro inesperado ao buscar cliente", "error": db_error.orig.args[0]}), 500
         except NotFound:
-            return jsonify({"status": "ERROR", "message": "Cliente não encontrado"}), 400
+            return jsonify({"status": "ERROR", "message": "Cliente não encontrado"}), 404
 
     def update_customer(self, customer_id):
         request_body = request.get_json()
@@ -42,4 +42,14 @@ class CustomerController:
             else:
                 return jsonify({"status": "ERROR", "message": "Erro inesperado ao atualizar informações do cliente", "error": error_message}), 500
         except NotFound:
-            return jsonify({"status": "ERROR", "message": "Cliente não encontrado"}), 400
+            return jsonify({"status": "ERROR", "message": "Cliente não encontrado"}), 404
+
+    def remove_customer(self, customer_id):
+        try:
+            self.customer_repository.remove_customer(customer_id)
+
+            return jsonify({"status": "SUCCESS", "message": "Cliente removido com sucesso"}), 200
+        except SQLAlchemyError as db_error:
+            return jsonify({"status": "ERROR", "message": "Erro inesperado ao remover cliente do sistema", "error": db_error.orig.args[0]}), 500
+        except NotFound:
+            return jsonify({"status": "ERROR", "message": "Erro ao remover cliente, id não encontrado"}), 404
