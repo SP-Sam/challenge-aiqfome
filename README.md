@@ -207,13 +207,6 @@ Se você tem uma chave SSH configurada:
     "status": "SUCCESS"
   }
 
-## 👨‍💻 Desenvolvedor
-<a href="https://www.linkedin.com/in/spsam/">
-  <img src="https://avatars.githubusercontent.com/u/72403810?v=4" width="100px" alt="Imagem de Samuel Pereira">
-  <br>
-  <b>Samuel Pereira</b>
-</a>
-
 ## 🖋️ Licença
 Este projeto é um desafio técnico para um processo seletivo da [aiqfome](https://aiqfome.com/), não possui fins lucrativos e não está licenciado.
 
