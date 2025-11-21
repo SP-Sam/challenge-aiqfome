@@ -23,3 +23,18 @@ class MissingRequiredFieldsError(CustomError):
         if missing_fields:
             self.missing_fields = missing_fields
             self.description = f'Campos obrigatórios não informados ou inválidos: {", ".join(missing_fields)}'
+
+class AuthFailedError(CustomError):
+    error = "Falha na autenticação"
+    description = "Email ou senha incorretos"
+    code = 401
+
+class AuthRequiredError(CustomError):
+    error = "Autenticação necessária"
+    description = "Autenticação necessária para acessar este recurso"
+    code = 401
+
+class UnauthorizedError(CustomError):
+    error = "Acesso negado"
+    description = "Permissão insuficiente para acessar este recurso"
+    code = 403
