@@ -32,7 +32,7 @@ Se você tem uma chave SSH configurada:
   git clone git@github.com:SP-Sam/challenge-aiqfome.git
 ```
 
-### 4. Execute o seguinte comando para subir a aplicação e o banco de dados
+### 4. Dentro da pasta do projeto, execute o seguinte comando:
 ```bash
   docker compose up --build
 ```
